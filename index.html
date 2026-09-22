@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Élections des délégués — Jara ZEQIRI</title>
+  <title>Jara ZEQIRI — Présentation · 5e2</title>
+
   <meta
     name="description"
-    content="Présentation de Jara ZEQIRI et Gia Han NGUYEN pour les élections des délégués de la classe 5e2."
-  />
+    content="Présentation de Jara ZEQIRI et Gia Han NGUYEN pour la classe 5e2."
+  >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,26 +17,40 @@
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
     rel="stylesheet"
-  />
+  >
 
   <style>
-    :root {
-      --black: #080808;
-      --black-soft: #101010;
-      --black-card: #141414;
-      --gold: #d4af37;
-      --gold-light: #f0d878;
-      --white: #ffffff;
-      --white-soft: #e9e9e9;
-      --gray: #a6a6a6;
-      --border: rgba(212, 175, 55, 0.2);
-      --border-light: rgba(255, 255, 255, 0.08);
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 
-      --max-width: 1180px;
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f0d77a;
+      --gold-dark: #a88418;
+
+      --black: #070707;
+      --black-soft: #0e0e0e;
+      --black-card: #151515;
+
+      --white: #ffffff;
+      --white-soft: #f5f4ef;
+      --gray: #a7a7a7;
+
+      --border: rgba(212, 175, 55, 0.22);
+      --border-light: rgba(255, 255, 255, 0.08);
+
       --radius: 22px;
-      --transition: 0.3s ease;
+      --max-width: 1180px;
+
+      --shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35);
+
+      --transition:
+        0.3s cubic-bezier(.2,.8,.2,1);
     }
+
+
+    /* =====================================================
+       RESET
+    ===================================================== */
 
     * {
       margin: 0;
@@ -55,6 +70,11 @@
       overflow-x: hidden;
     }
 
+    body::selection {
+      background: var(--gold);
+      color: var(--black);
+    }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -64,10 +84,79 @@
       font: inherit;
     }
 
-    ::selection {
-      background: var(--gold);
-      color: var(--black);
+
+    /* =====================================================
+       BACKGROUND
+    ===================================================== */
+
+    body::before {
+      content: "";
+
+      position: fixed;
+      inset: 0;
+
+      z-index: -2;
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(212, 175, 55, 0.13),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 70%,
+          rgba(212, 175, 55, 0.08),
+          transparent 28%
+        );
     }
+
+    body::after {
+      content: "";
+
+      position: fixed;
+      inset: 0;
+
+      z-index: -1;
+      pointer-events: none;
+
+      opacity: .025;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.6) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.6) 1px,
+          transparent 1px
+        );
+
+      background-size: 45px 45px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 75%
+        );
+    }
+
+
+    /* =====================================================
+       CONTAINER
+    ===================================================== */
+
+    .container {
+      width: min(
+        var(--max-width),
+        calc(100% - 40px)
+      );
+
+      margin: 0 auto;
+    }
+
 
     /* =====================================================
        NAVBAR
@@ -75,145 +164,132 @@
 
     .navbar {
       position: fixed;
+
       top: 0;
       left: 0;
-      width: 100%;
+      right: 0;
+
       z-index: 1000;
-      background: rgba(8, 8, 8, 0.82);
+
+      padding: 18px 0;
+
+      background:
+        rgba(7, 7, 7, .76);
+
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+      border-bottom:
+        1px solid rgba(255,255,255,.06);
     }
 
-    .nav-container {
-      width: min(var(--max-width), calc(100% - 40px));
-      height: 76px;
-      margin: auto;
+    .nav-inner {
       display: flex;
+
       align-items: center;
       justify-content: space-between;
+
+      gap: 30px;
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: .02em;
     }
 
-    .brand-mark {
-      display: none;
+    .brand-main {
+      display: block;
+      color: white;
     }
 
-    .brand-text {
-      font-size: 15px;
-    }
+    .brand-sub {
+      display: block;
 
-    .brand-text span {
-      color: var(--gold);
+      color: var(--gray);
+
+      font-size: .66rem;
+      font-weight: 500;
+
+      letter-spacing: .13em;
+      text-transform: uppercase;
     }
 
     .nav-links {
       display: flex;
+
       align-items: center;
-      gap: 30px;
-      list-style: none;
+
+      gap: 28px;
     }
 
     .nav-links a {
       position: relative;
-      color: var(--gray);
-      font-size: 14px;
-      font-weight: 500;
+
+      color: #d0d0d0;
+
+      font-size: .9rem;
+
       transition: var(--transition);
     }
 
     .nav-links a::after {
       content: "";
+
       position: absolute;
+
       left: 0;
       bottom: -7px;
+
       width: 0;
       height: 2px;
+
       background: var(--gold);
+
       transition: var(--transition);
     }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--white);
+    .nav-links a:hover {
+      color: var(--gold-light);
     }
 
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
+    .nav-links a:hover::after {
       width: 100%;
     }
 
-    .menu-toggle {
+    .nav-class {
+      padding: 8px 14px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 999px;
+
+      color: var(--gold-light) !important;
+    }
+
+    .nav-class::after {
       display: none;
-      border: 0;
-      background: transparent;
-      color: var(--white);
+    }
+
+    .menu-button {
+      display: none;
+
+      width: 44px;
+      height: 40px;
+
+      border:
+        1px solid rgba(255,255,255,.1);
+
+      border-radius: 12px;
+
+      background:
+        rgba(255,255,255,.04);
+
+      color: white;
+
       cursor: pointer;
-      font-size: 25px;
     }
 
-    /* =====================================================
-       GLOBAL
-    ===================================================== */
-
-    .container {
-      width: min(var(--max-width), calc(100% - 40px));
-      margin: auto;
-    }
-
-    section {
-      position: relative;
-      padding: 120px 0;
-    }
-
-    .section-header {
-      max-width: 720px;
-      margin-bottom: 55px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 28px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    .section-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(38px, 5vw, 62px);
-      line-height: 1.05;
-      letter-spacing: -0.035em;
-      margin-bottom: 20px;
-    }
-
-    .section-description {
-      color: var(--gray);
-      font-size: 17px;
-      max-width: 650px;
-    }
-
-    .gold {
-      color: var(--gold);
-    }
 
     /* =====================================================
        HERO
@@ -221,272 +297,456 @@
 
     .hero {
       min-height: 100vh;
+
       display: flex;
       align-items: center;
-      padding-top: 130px;
-      padding-bottom: 80px;
-      overflow: hidden;
-    }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 10%;
-      right: -180px;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: rgba(212, 175, 55, 0.08);
-      filter: blur(100px);
-      pointer-events: none;
-    }
+      padding:
+        150px
+        0
+        100px;
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: -250px;
-      left: -180px;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: rgba(212, 175, 55, 0.04);
-      filter: blur(100px);
-      pointer-events: none;
+      position: relative;
     }
 
     .hero-grid {
-      position: relative;
-      z-index: 2;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: center;
+
+      grid-template-columns:
+        1.15fr .85fr;
+
       gap: 80px;
-    }
 
-    .hero-content {
-      max-width: 700px;
-    }
-
-    .hero-label {
-      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 25px;
-      padding: 8px 14px;
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      background: rgba(212, 175, 55, 0.05);
-      color: var(--gold-light);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
     }
 
-    .hero-label::before {
+    .eyebrow {
+      display: inline-flex;
+
+      align-items: center;
+      gap: 9px;
+
+      margin-bottom: 24px;
+
+      color: var(--gold-light);
+
+      font-size: .74rem;
+      font-weight: 700;
+
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
       content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
+
+      width: 28px;
+      height: 1px;
+
       background: var(--gold);
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
     }
 
     .hero h1 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(54px, 7vw, 94px);
-      line-height: 0.98;
-      letter-spacing: -0.05em;
-      margin-bottom: 28px;
+      max-width: 800px;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(3.4rem, 7vw, 6.8rem);
+
+      line-height: .94;
+
+      letter-spacing: -.055em;
+
+      margin-bottom: 30px;
     }
 
     .hero h1 span {
-      color: var(--gold);
+      color: var(--gold-light);
     }
 
     .hero-description {
-      max-width: 620px;
+      max-width: 650px;
+
+      color: #c7c7c7;
+
+      font-size: 1.08rem;
+
+      line-height: 1.8;
+
       margin-bottom: 34px;
-      color: var(--gray);
-      font-size: 18px;
     }
 
     .hero-description strong {
-      color: var(--white);
+      color: white;
     }
 
-    .hero-pills {
+    .hero-meta {
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 10px;
-      margin-bottom: 38px;
     }
 
-    .pill {
-      padding: 9px 14px;
-      border: 1px solid var(--border-light);
-      border-radius: 100px;
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--white-soft);
-      font-size: 13px;
+    .meta-pill {
+      padding:
+        9px
+        14px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.09);
+
+      border-radius: 999px;
+
+      background:
+        rgba(255,255,255,.035);
+
+      color: #ddd;
+
+      font-size: .8rem;
     }
 
-    .pill strong {
-      color: var(--gold);
+    .meta-pill strong {
+      color: var(--gold-light);
     }
+
+
+    /* =====================================================
+       HERO CARD
+    ===================================================== */
 
     .hero-card {
       position: relative;
-      min-height: 500px;
-      padding: 36px;
+
+      min-height: 470px;
+
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      border: 1px solid var(--border);
+
+      padding: 34px;
+
+      border:
+        1px solid
+        var(--border);
+
       border-radius: 30px;
+
       background:
         linear-gradient(
           145deg,
-          rgba(212, 175, 55, 0.1),
-          rgba(255, 255, 255, 0.02)
-        ),
-        var(--black-card);
+          rgba(255,255,255,.075),
+          rgba(255,255,255,.025)
+        );
+
       box-shadow: var(--shadow);
+
       overflow: hidden;
     }
 
     .hero-card::before {
       content: "";
+
       position: absolute;
-      top: -100px;
-      right: -100px;
+
       width: 300px;
       height: 300px;
+
+      top: -150px;
+      right: -110px;
+
       border-radius: 50%;
-      border: 1px solid rgba(212, 175, 55, 0.2);
+
+      border:
+        1px solid
+        rgba(212,175,55,.2);
+
+      box-shadow:
+        0 0 0 35px
+        rgba(212,175,55,.025),
+        0 0 0 70px
+        rgba(212,175,55,.018);
     }
 
     .hero-card::after {
       content: "";
+
       position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 200px;
-      height: 200px;
+
+      left: -80px;
+      bottom: -80px;
+
+      width: 190px;
+      height: 190px;
+
       border-radius: 50%;
-      border: 1px solid rgba(212, 175, 55, 0.13);
+
+      background:
+        rgba(212,175,55,.07);
+
+      filter: blur(35px);
     }
 
-    .candidate-icon {
-      display: none;
-    }
-
-    .hero-card-content {
+    .candidate-label {
       position: relative;
       z-index: 2;
-    }
 
-    .hero-card-label {
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 700;
+      color: var(--gray);
+
+      font-size: .72rem;
+
+      letter-spacing: .15em;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 10px;
+
+      margin-bottom: 18px;
     }
 
     .hero-card h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 38px;
+      position: relative;
+      z-index: 2;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 2.8rem;
+
       line-height: 1.05;
-      margin-bottom: 8px;
+
+      margin-bottom: 7px;
     }
 
-    .hero-card p {
-      color: var(--gray);
-      font-size: 15px;
+    .candidate-role {
+      position: relative;
+      z-index: 2;
+
+      color: var(--gold-light);
+
+      font-weight: 600;
     }
 
-    .hero-card-line {
-      width: 60px;
-      height: 2px;
+    .candidate-line {
+      position: relative;
+      z-index: 2;
+
+      height: 1px;
+
+      background:
+        rgba(255,255,255,.09);
+
       margin: 25px 0;
-      background: var(--gold);
     }
 
-    .hero-card-class {
-      color: var(--white);
-      font-size: 14px;
+    .partner {
+      position: relative;
+      z-index: 2;
+
+      padding: 18px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.07);
+
+      border-radius: 16px;
+
+      background:
+        rgba(255,255,255,.025);
     }
+
+    .partner small {
+      display: block;
+
+      color: var(--gray);
+
+      font-size: .68rem;
+
+      text-transform: uppercase;
+      letter-spacing: .1em;
+
+      margin-bottom: 4px;
+    }
+
+    .partner strong {
+      font-size: 1rem;
+    }
+
 
     /* =====================================================
-       VALUES
+       COMMON SECTIONS
     ===================================================== */
 
-    .values-section {
-      background: var(--black-soft);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
+    section {
+      padding: 110px 0;
     }
+
+    .section-heading {
+      max-width: 720px;
+
+      margin-bottom: 55px;
+    }
+
+    .section-kicker {
+      color: var(--gold-light);
+
+      font-size: .74rem;
+      font-weight: 700;
+
+      letter-spacing: .16em;
+      text-transform: uppercase;
+
+      margin-bottom: 14px;
+    }
+
+    .section-heading h2 {
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(2.4rem, 5vw, 4.2rem);
+
+      line-height: 1.05;
+
+      letter-spacing: -.04em;
+
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      color: var(--gray);
+
+      line-height: 1.8;
+    }
+
+
+    /* =====================================================
+       VALEURS
+    ===================================================== */
 
     .values-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 16px;
     }
 
     .value-card {
       position: relative;
-      padding: 32px;
+
       min-height: 250px;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius);
-      background: var(--black-card);
-      transition: transform var(--transition), border-color var(--transition);
-      overflow: hidden;
+
+      padding: 28px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.07);
+
+      border-radius:
+        var(--radius);
+
+      background:
+        var(--black-card);
+
+      transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
     }
 
     .value-card::before {
       content: "";
+
       position: absolute;
+
       top: 0;
       left: 0;
+
       width: 100%;
       height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
+
+      background:
+        var(--gold);
+
+      transform:
+        scaleX(0);
+
       transform-origin: left;
-      transition: var(--transition);
+
+      transition:
+        transform var(--transition);
     }
 
     .value-card:hover {
-      transform: translateY(-7px);
-      border-color: var(--border);
+      transform:
+        translateY(-8px);
+
+      border-color:
+        var(--border);
+
+      box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.3);
     }
 
     .value-card:hover::before {
-      transform: scaleX(1);
+      transform:
+        scaleX(1);
+    }
+
+    .value-number {
+      color: var(--gold);
+
+      font-size: .72rem;
+      font-weight: 700;
+
+      letter-spacing: .12em;
+
+      margin-bottom: 60px;
     }
 
     .value-card h3 {
-      margin-bottom: 12px;
-      font-family: "Playfair Display", serif;
-      font-size: 27px;
+      font-size: 1.2rem;
+
+      margin-bottom: 9px;
     }
 
     .value-card p {
       color: var(--gray);
-      font-size: 14px;
+
+      font-size: .88rem;
+
+      line-height: 1.7;
     }
+
 
     /* =====================================================
        ENGAGEMENT
     ===================================================== */
 
+    .engagement {
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          rgba(212,175,55,.035),
+          transparent
+        );
+    }
+
     .engagement-grid {
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 80px;
+
+      grid-template-columns:
+        .8fr 1.2fr;
+
+      gap: 70px;
+
       align-items: start;
     }
 
@@ -495,74 +755,174 @@
       top: 120px;
     }
 
+    .engagement-intro h2 {
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(2.5rem, 5vw, 4rem);
+
+      line-height: 1.05;
+
+      letter-spacing: -.04em;
+
+      margin-bottom: 20px;
+    }
+
+    .engagement-intro p {
+      color: var(--gray);
+
+      line-height: 1.8;
+    }
+
     .engagement-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+      display: grid;
+      gap: 13px;
     }
 
     .engagement-item {
       display: grid;
-      grid-template-columns: 60px 1fr;
-      gap: 22px;
-      padding: 27px 0;
-      border-bottom: 1px solid var(--border-light);
+
+      grid-template-columns:
+        50px 1fr;
+
+      gap: 18px;
+
+      padding: 23px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.07);
+
+      border-radius: 18px;
+
+      background:
+        rgba(255,255,255,.025);
+
+      transition:
+        var(--transition);
+    }
+
+    .engagement-item:hover {
+      transform:
+        translateX(5px);
+
+      border-color:
+        var(--border);
+
+      background:
+        rgba(212,175,55,.035);
     }
 
     .engagement-number {
       color: var(--gold);
-      font-family: "Playfair Display", serif;
-      font-size: 22px;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 1.1rem;
     }
 
     .engagement-item h3 {
       margin-bottom: 5px;
-      font-size: 18px;
+
+      font-size: 1rem;
     }
 
     .engagement-item p {
       color: var(--gray);
-      font-size: 14px;
+
+      font-size: .88rem;
+
+      line-height: 1.65;
     }
+
 
     /* =====================================================
        QUOTE
     ===================================================== */
 
     .quote-section {
-      padding: 110px 0;
-      background: var(--black-soft);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
+      padding-top: 80px;
+      padding-bottom: 80px;
     }
 
-    .quote-box {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
+    .quote-card {
+      position: relative;
+
+      padding: 65px;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(212,175,55,.11),
+          rgba(255,255,255,.025)
+        );
+
+      border:
+        1px solid
+        var(--border);
+
+      overflow: hidden;
     }
 
-    .quote-mark {
-      color: var(--gold);
-      font-family: "Playfair Display", serif;
-      font-size: 80px;
-      line-height: 0.7;
-      margin-bottom: 25px;
-      opacity: 0.8;
+    .quote-card::after {
+      content: "“";
+
+      position: absolute;
+
+      right: 20px;
+      top: -60px;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 16rem;
+
+      line-height: 1;
+
+      color:
+        rgba(212,175,55,.07);
     }
 
-    .quote-text {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(38px, 6vw, 70px);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
+    .quote-label {
+      position: relative;
+      z-index: 1;
+
+      color: var(--gold-light);
+
+      font-size: .72rem;
+      font-weight: 700;
+
+      letter-spacing: .15em;
+      text-transform: uppercase;
+
+      margin-bottom: 20px;
     }
 
-    .quote-author {
-      margin-top: 24px;
-      color: var(--gray);
-      font-size: 14px;
+    .quote-card blockquote {
+      position: relative;
+      z-index: 1;
+
+      max-width: 780px;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(2.1rem, 4vw, 4rem);
+
+      line-height: 1.12;
+
+      letter-spacing: -.035em;
     }
+
 
     /* =====================================================
        TEAM
@@ -570,372 +930,692 @@
 
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      max-width: 850px;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 18px;
     }
 
     .person-card {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      padding: 28px;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius);
-      background: var(--black-card);
-      transition: var(--transition);
+      padding: 30px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.07);
+
+      border-radius:
+        var(--radius);
+
+      background:
+        var(--black-card);
+
+      transition:
+        var(--transition);
     }
 
     .person-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--border);
+      transform:
+        translateY(-5px);
+
+      border-color:
+        var(--border);
     }
 
-    .person-avatar {
-      width: 72px;
-      height: 72px;
-      flex: 0 0 72px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: rgba(212, 175, 55, 0.08);
-      color: var(--gold);
-      font-family: "Playfair Display", serif;
-      font-size: 26px;
+    .person-top {
+      margin-bottom: 22px;
     }
 
-    .person-role {
-      margin-bottom: 5px;
-      color: var(--gold);
-      font-size: 11px;
+    .person-card small {
+      display: block;
+
+      color: var(--gold-light);
+
+      font-size: .7rem;
       font-weight: 700;
+
+      letter-spacing: .12em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+
+      margin-bottom: 5px;
     }
 
-    .person-name {
-      font-size: 21px;
-      font-weight: 700;
+    .person-card h3 {
+      font-size: 1.35rem;
     }
 
-    .person-class {
-      margin-top: 3px;
+    .person-card p {
       color: var(--gray);
-      font-size: 13px;
+
+      font-size: .9rem;
+
+      line-height: 1.75;
     }
+
 
     /* =====================================================
-       FINAL
+       FINAL CTA
     ===================================================== */
 
     .final-section {
       padding-top: 80px;
-      padding-bottom: 120px;
+      padding-bottom: 80px;
     }
 
     .final-card {
-      position: relative;
-      padding: 70px 50px;
       text-align: center;
-      border: 1px solid var(--border);
-      border-radius: 30px;
+
+      padding:
+        75px
+        30px;
+
+      border-radius: 32px;
+
       background:
         radial-gradient(
           circle at 50% 0%,
-          rgba(212, 175, 55, 0.12),
+          rgba(212,175,55,.14),
           transparent 50%
         ),
         var(--black-card);
-      overflow: hidden;
+
+      border:
+        1px solid
+        var(--border);
+    }
+
+    .final-card .eyebrow {
+      justify-content: center;
     }
 
     .final-card h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(38px, 5vw, 62px);
-      margin-bottom: 18px;
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(2.7rem, 6vw, 5rem);
+
+      line-height: 1;
+
+      letter-spacing: -.05em;
+
+      max-width: 850px;
+
+      margin:
+        0 auto 20px;
     }
 
     .final-card p {
-      max-width: 600px;
-      margin: auto;
+      max-width: 620px;
+
+      margin:
+        0 auto 30px;
+
       color: var(--gray);
     }
+
+    .class-badge {
+      display: inline-flex;
+
+      padding:
+        11px 17px;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 999px;
+
+      color: var(--gold-light);
+
+      font-size: .82rem;
+      font-weight: 700;
+
+      margin-bottom: 28px;
+    }
+
+    .main-button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-width: 230px;
+
+      padding:
+        15px 25px;
+
+      border: none;
+
+      border-radius: 999px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          var(--gold)
+        );
+
+      color: #111;
+
+      font-size: .9rem;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 12px 35px
+        rgba(212,175,55,.18);
+
+      transition:
+        var(--transition);
+    }
+
+    .main-button:hover {
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 18px 45px
+        rgba(212,175,55,.28);
+    }
+
 
     /* =====================================================
        FOOTER
     ===================================================== */
 
     footer {
-      padding: 30px 0;
-      border-top: 1px solid var(--border-light);
-      color: var(--gray);
-      font-size: 12px;
+      padding:
+        30px 0 40px;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,.06);
+
+      color: #777;
+
+      font-size: .78rem;
     }
 
     .footer-inner {
       display: flex;
-      justify-content: space-between;
+
       align-items: center;
+      justify-content: space-between;
+
       gap: 20px;
     }
 
     .footer-brand {
-      color: var(--white);
+      color: #bbb;
+
       font-weight: 600;
     }
 
-    .footer-brand span {
-      color: var(--gold);
-    }
 
     /* =====================================================
-       ANIMATIONS
+       MODAL
+    ===================================================== */
+
+    .modal {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 3000;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      background:
+        rgba(0,0,0,.78);
+
+      backdrop-filter:
+        blur(10px);
+
+      -webkit-backdrop-filter:
+        blur(10px);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      position: relative;
+
+      width: min(500px, 100%);
+
+      padding: 50px 35px;
+
+      text-align: center;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 28px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #191919,
+          #0d0d0d
+        );
+
+      box-shadow:
+        0 35px 100px
+        rgba(0,0,0,.55);
+
+      animation:
+        modalIn .35s ease;
+    }
+
+    @keyframes modalIn {
+
+      from {
+        opacity: 0;
+        transform:
+          translateY(20px)
+          scale(.96);
+      }
+
+      to {
+        opacity: 1;
+        transform:
+          translateY(0)
+          scale(1);
+      }
+
+    }
+
+    .modal-box h3 {
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size: 2.4rem;
+
+      margin-bottom: 12px;
+    }
+
+    .modal-box p {
+      color: var(--gray);
+
+      line-height: 1.7;
+    }
+
+    .modal-close {
+      position: absolute;
+
+      top: 15px;
+      right: 15px;
+
+      width: 38px;
+      height: 38px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.1);
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,.04);
+
+      color: white;
+
+      font-size: 1.2rem;
+
+      cursor: pointer;
+
+      transition:
+        var(--transition);
+    }
+
+    .modal-close:hover {
+      background:
+        rgba(255,255,255,.1);
+    }
+
+
+    /* =====================================================
+       REVEAL
     ===================================================== */
 
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
+
+      transform:
+        translateY(25px);
+
       transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
+        opacity .7s ease,
+        transform .7s ease;
     }
 
     .reveal.visible {
       opacity: 1;
-      transform: translateY(0);
+
+      transform:
+        translateY(0);
     }
+
 
     /* =====================================================
        RESPONSIVE
     ===================================================== */
 
-    @media (max-width: 1000px) {
-      .hero-grid {
+    @media (max-width: 950px) {
+
+      .hero-grid,
+      .engagement-grid {
         grid-template-columns: 1fr;
-        gap: 50px;
       }
 
       .hero-card {
-        min-height: 400px;
-      }
-
-      .values-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .engagement-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        max-width: 650px;
       }
 
       .engagement-intro {
         position: static;
       }
+
+      .values-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
     }
 
-    @media (max-width: 760px) {
-      section {
-        padding: 85px 0;
+
+    @media (max-width: 700px) {
+
+      .container {
+        width:
+          min(
+            var(--max-width),
+            calc(100% - 28px)
+          );
       }
 
-      .nav-container {
-        width: min(var(--max-width), calc(100% - 28px));
-      }
-
-      .menu-toggle {
-        display: block;
+      .menu-button {
+        display: grid;
+        place-items: center;
       }
 
       .nav-links {
         position: absolute;
-        top: 76px;
-        left: 0;
-        width: 100%;
+
+        top:
+          calc(100% + 10px);
+
+        left: 14px;
+        right: 14px;
+
         display: none;
+
         flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        padding: 12px 20px 20px;
-        background: rgba(8, 8, 8, 0.97);
-        border-bottom: 1px solid var(--border-light);
+        align-items: stretch;
+
+        gap: 3px;
+
+        padding: 15px;
+
+        border:
+          1px solid
+          rgba(255,255,255,.08);
+
+        border-radius: 18px;
+
+        background:
+          rgba(12,12,12,.97);
+
+        box-shadow:
+          var(--shadow);
       }
 
       .nav-links.open {
         display: flex;
       }
 
-      .nav-links li {
-        width: 100%;
+      .nav-links a {
+        padding: 12px;
       }
 
-      .nav-links a {
-        display: block;
-        width: 100%;
-        padding: 14px 0;
+      .nav-links a::after {
+        display: none;
       }
 
       .hero {
-        padding-top: 120px;
+        padding-top: 130px;
       }
 
       .hero h1 {
-        font-size: clamp(48px, 14vw, 70px);
+        font-size:
+          clamp(
+            3rem,
+            15vw,
+            5rem
+          );
       }
 
-      .hero-description {
-        font-size: 16px;
+      .hero-card {
+        min-height: 390px;
       }
 
-      .values-grid {
-        grid-template-columns: 1fr;
-      }
-
+      .values-grid,
       .team-grid {
         grid-template-columns: 1fr;
       }
 
-      .person-card {
-        padding: 22px;
+      .value-card {
+        min-height: auto;
       }
 
-      .final-card {
-        padding: 55px 25px;
+      .value-number {
+        margin-bottom: 35px;
+      }
+
+      .quote-card {
+        padding:
+          45px 25px;
+      }
+
+      .quote-card blockquote {
+        font-size: 2.1rem;
       }
 
       .footer-inner {
         flex-direction: column;
         align-items: flex-start;
       }
+
     }
 
-    @media (max-width: 480px) {
-      .container {
-        width: min(var(--max-width), calc(100% - 28px));
+
+    @media (max-width: 450px) {
+
+      .hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .meta-pill {
+        width: 100%;
       }
 
       .hero-card {
-        min-height: 350px;
-        padding: 28px;
-      }
-
-      .hero-card h2 {
-        font-size: 32px;
+        padding: 27px;
       }
 
       .engagement-item {
-        grid-template-columns: 42px 1fr;
+        grid-template-columns:
+          40px 1fr;
+
         gap: 12px;
+
+        padding: 19px;
       }
 
-      .person-avatar {
-        width: 58px;
-        height: 58px;
-        flex-basis: 58px;
+      .modal-box {
+        padding:
+          45px 25px;
       }
+
     }
+
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body>
+
 
   <!-- =====================================================
        NAVBAR
   ====================================================== -->
 
   <header class="navbar">
-    <div class="nav-container">
+
+    <div class="container nav-inner">
 
       <a href="#accueil" class="brand">
-        <span class="brand-mark"></span>
 
-        <span class="brand-text">
-          Élections <span>5e2</span>
+        <span>
+          <span class="brand-main">
+            Jara ZEQIRI
+          </span>
+
+          <span class="brand-sub">
+            Présentation · 5e2
+          </span>
         </span>
+
       </a>
 
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="#accueil">
+          Accueil
+        </a>
+
+        <a href="#valeurs">
+          Valeurs
+        </a>
+
+        <a href="#engagement">
+          Engagement
+        </a>
+
+        <a href="#equipe">
+          Équipe
+        </a>
+
+        <a href="#conclusion" class="nav-class">
+          5e2
+        </a>
+
+      </nav>
+
+
       <button
-        class="menu-toggle"
-        id="menuToggle"
+        class="menu-button"
+        id="menuButton"
         aria-label="Ouvrir le menu"
         aria-expanded="false"
       >
-        ☰
+        Menu
       </button>
 
-      <nav>
-        <ul class="nav-links" id="navLinks">
-          <li>
-            <a href="#accueil" class="active">Accueil</a>
-          </li>
-
-          <li>
-            <a href="#valeurs">Valeurs</a>
-          </li>
-
-          <li>
-            <a href="#engagement">Engagement</a>
-          </li>
-
-          <li>
-            <a href="#equipe">Équipe</a>
-          </li>
-
-          <li>
-            <a href="#classe">5e2</a>
-          </li>
-        </ul>
-      </nav>
-
     </div>
+
   </header>
 
 
+
   <main>
+
 
     <!-- =====================================================
          HERO
     ====================================================== -->
 
-    <section class="hero" id="accueil">
+    <section
+      class="hero"
+      id="accueil"
+    >
 
       <div class="container hero-grid">
 
+
         <div class="hero-content reveal">
 
-          <div class="hero-label">
+          <div class="eyebrow">
             Élections des délégués
           </div>
 
+
           <h1>
             Écouter.<br>
-            <span>Représenter.</span><br>
-            Agir.
+            Représenter.<br>
+            <span>Agir.</span>
           </h1>
 
+
           <p class="hero-description">
-            Une candidature construite autour de
-            <strong>l’écoute</strong>, de la
-            <strong>responsabilité</strong> et de la
-            <strong>coopération</strong>, pour représenter au mieux
-            les élèves de la <strong>5e2</strong>.
+
+            Une présentation de la candidature de
+            <strong>Jara ZEQIRI</strong>,
+            avec <strong>Gia Han NGUYEN</strong>
+            comme suppléante, pour la classe
+            <strong>5e2</strong>.
+
           </p>
 
-          <div class="hero-pills">
 
-            <div class="pill">
-              Candidate :
+          <div class="hero-meta">
+
+            <div class="meta-pill">
+              Candidate ·
               <strong>Jara ZEQIRI</strong>
             </div>
 
-            <div class="pill">
-              Suppléante :
+            <div class="meta-pill">
+              Suppléante ·
               <strong>Gia Han NGUYEN</strong>
             </div>
 
-            <div class="pill">
-              Classe :
+            <div class="meta-pill">
+              Classe ·
               <strong>5e2</strong>
             </div>
 
@@ -944,122 +1624,160 @@
         </div>
 
 
+
         <div class="hero-card reveal">
 
-          <div class="hero-card-content">
+          <div class="candidate-label">
+            Présentation
+          </div>
 
-            <div class="hero-card-label">
-              Candidate
-            </div>
 
-            <h2>
-              Jara<br>
-              ZEQIRI
-            </h2>
+          <h2>
+            Jara ZEQIRI
+          </h2>
 
-            <p>
-              Une déléguée attentive, organisée et disponible.
-            </p>
 
-            <div class="hero-card-line"></div>
+          <div class="candidate-role">
+            Candidate déléguée
+          </div>
 
-            <div class="hero-card-class">
-              Classe de <strong>5e2</strong>
-            </div>
+
+          <div class="candidate-line"></div>
+
+
+          <div class="partner">
+
+            <small>
+              Suppléante
+            </small>
+
+            <strong>
+              Gia Han NGUYEN
+            </strong>
 
           </div>
 
         </div>
 
+
       </div>
 
     </section>
+
 
 
     <!-- =====================================================
          VALEURS
     ====================================================== -->
 
-    <section class="values-section" id="valeurs">
+    <section id="valeurs">
 
       <div class="container">
 
-        <div class="section-header reveal">
 
-          <div class="eyebrow">
-            Nos valeurs
+        <div class="section-heading reveal">
+
+          <div class="section-kicker">
+            01 · Les valeurs
           </div>
 
-          <h2 class="section-title">
+
+          <h2>
             Une représentation basée sur
-            <span class="gold">l'essentiel.</span>
+            <span class="gold">
+              l'écoute.
+            </span>
           </h2>
 
-          <p class="section-description">
-            Être déléguée, c'est avant tout être à l'écoute des autres,
-            prendre ses responsabilités et participer à une bonne
-            dynamique de classe.
+
+          <p>
+            Les priorités présentées pour cette candidature
+            reposent sur l'écoute, la responsabilité,
+            la coopération et la prise en compte des idées
+            des élèves.
           </p>
 
         </div>
 
 
+
         <div class="values-grid">
 
+
           <article class="value-card reveal">
+
+            <div class="value-number">
+              01
+            </div>
 
             <h3>
               Écoute
             </h3>
 
             <p>
-              Prendre le temps d'écouter les idées, les besoins
-              et les différents points de vue de chaque élève.
+              Donner une place aux idées, questions et
+              préoccupations des élèves.
             </p>
 
           </article>
 
 
+
           <article class="value-card reveal">
+
+            <div class="value-number">
+              02
+            </div>
 
             <h3>
               Responsabilité
             </h3>
 
             <p>
-              Prendre son rôle au sérieux, respecter ses engagements
-              et transmettre les informations importantes.
+              Prendre au sérieux le rôle de représentation
+              et les responsabilités associées.
             </p>
 
           </article>
 
 
+
           <article class="value-card reveal">
+
+            <div class="value-number">
+              03
+            </div>
 
             <h3>
               Coopération
             </h3>
 
             <p>
-              Encourager les échanges et rechercher des solutions
-              en travaillant ensemble.
+              Favoriser les échanges et la coopération
+              entre les élèves de la classe.
             </p>
 
           </article>
 
 
+
           <article class="value-card reveal">
+
+            <div class="value-number">
+              04
+            </div>
 
             <h3>
               Disponibilité
             </h3>
 
             <p>
-              Être présente et accessible pour pouvoir écouter
-              les élèves lorsque cela est nécessaire.
+              Être présente pour écouter et transmettre
+              les informations nécessaires.
             </p>
 
           </article>
+
 
         </div>
 
@@ -1068,34 +1786,47 @@
     </section>
 
 
+
     <!-- =====================================================
          ENGAGEMENT
     ====================================================== -->
 
-    <section id="engagement">
+    <section
+      class="engagement"
+      id="engagement"
+    >
 
       <div class="container engagement-grid">
 
+
         <div class="engagement-intro reveal">
 
-          <div class="eyebrow">
-            Nos engagements
+          <div class="section-kicker">
+            02 · Engagement
           </div>
 
-          <h2 class="section-title">
-            Des idées simples.
-            <span class="gold">Des actions concrètes.</span>
+
+          <h2>
+            Une méthode
+            <span class="gold">
+              simple.
+            </span>
           </h2>
 
-          <p class="section-description">
-            Le rôle de déléguée consiste aussi à être un lien entre
-            les élèves et les adultes de l'établissement.
+
+          <p>
+            L'objectif présenté est de rester à l'écoute
+            de la classe, de recueillir les différentes
+            opinions et de rechercher des solutions
+            lorsque cela est possible.
           </p>
 
         </div>
 
 
+
         <div class="engagement-list">
+
 
           <article class="engagement-item reveal">
 
@@ -1104,17 +1835,20 @@
             </div>
 
             <div>
+
               <h3>
                 Recueillir les idées
               </h3>
 
               <p>
-                Donner à chacun la possibilité de partager ses
-                propositions et ses remarques.
+                Utiliser différentes façons de recueillir
+                les suggestions et remarques des élèves.
               </p>
+
             </div>
 
           </article>
+
 
 
           <article class="engagement-item reveal">
@@ -1124,17 +1858,20 @@
             </div>
 
             <div>
+
               <h3>
                 Écouter les différents points de vue
               </h3>
 
               <p>
-                Prendre en compte les opinions de chacun avant
-                de chercher une solution.
+                Prendre le temps d'entendre les différentes
+                opinions avant de chercher une solution.
               </p>
+
             </div>
 
           </article>
+
 
 
           <article class="engagement-item reveal">
@@ -1144,17 +1881,21 @@
             </div>
 
             <div>
+
               <h3>
                 Favoriser la coopération
               </h3>
 
               <p>
-                Encourager la classe à travailler ensemble et
-                à construire des solutions collectives.
+                Encourager les échanges et les activités
+                permettant aux élèves de mieux travailler
+                ensemble.
               </p>
+
             </div>
 
           </article>
+
 
 
           <article class="engagement-item reveal">
@@ -1164,17 +1905,20 @@
             </div>
 
             <div>
+
               <h3>
                 Préparer les conseils de classe
               </h3>
 
               <p>
-                Recueillir les informations et les sujets importants
-                afin de pouvoir les représenter correctement.
+                Recueillir les informations importantes
+                et préparer les sujets à transmettre.
               </p>
+
             </div>
 
           </article>
+
 
 
           <article class="engagement-item reveal">
@@ -1184,23 +1928,28 @@
             </div>
 
             <div>
+
               <h3>
                 Rester disponible
               </h3>
 
               <p>
-                Être présente et disponible selon les situations
-                et les besoins de la classe.
+                Être disponible selon les situations
+                et communiquer les informations importantes
+                à la classe.
               </p>
+
             </div>
 
           </article>
+
 
         </div>
 
       </div>
 
     </section>
+
 
 
     <!-- =====================================================
@@ -1211,25 +1960,22 @@
 
       <div class="container">
 
-        <div class="quote-box reveal">
+        <div class="quote-card reveal">
 
-          <div class="quote-mark">
-            “
+          <div class="quote-label">
+            03 · Une façon de représenter la classe
           </div>
 
-          <div class="quote-text">
-            Je vous écoute.
-          </div>
-
-          <div class="quote-author">
-            Jara ZEQIRI · 5e2
-          </div>
+          <blockquote>
+            « Je vous écoute. »
+          </blockquote>
 
         </div>
 
       </div>
 
     </section>
+
 
 
     <!-- =====================================================
@@ -1240,75 +1986,79 @@
 
       <div class="container">
 
-        <div class="section-header reveal">
 
-          <div class="eyebrow">
-            L'équipe
+        <div class="section-heading reveal">
+
+          <div class="section-kicker">
+            04 · L'équipe
           </div>
 
-          <h2 class="section-title">
-            Deux élèves,
-            <span class="gold">un engagement commun.</span>
+          <h2>
+            Deux rôles,
+            <span class="gold">
+              une organisation.
+            </span>
           </h2>
 
-          <p class="section-description">
-            Une équipe organisée pour représenter la classe,
-            écouter ses élèves et transmettre leurs idées.
+          <p>
+            La candidature est composée d'une déléguée
+            et d'une suppléante, avec une organisation
+            adaptable selon les situations.
           </p>
 
         </div>
+
 
 
         <div class="team-grid">
 
+
           <article class="person-card reveal">
 
-            <div class="person-avatar">
-              J
-            </div>
+            <div class="person-top">
 
-            <div>
+              <small>
+                Déléguée
+              </small>
 
-              <div class="person-role">
-                Candidate
-              </div>
-
-              <div class="person-name">
+              <h3>
                 Jara ZEQIRI
-              </div>
-
-              <div class="person-class">
-                Classe de 5e2
-              </div>
+              </h3>
 
             </div>
 
+            <p>
+              Candidate principale pour représenter la classe,
+              recueillir les idées des élèves et participer
+              aux échanges avec les enseignants.
+            </p>
+
           </article>
+
 
 
           <article class="person-card reveal">
 
-            <div class="person-avatar">
-              G
-            </div>
+            <div class="person-top">
 
-            <div>
-
-              <div class="person-role">
+              <small>
                 Suppléante
-              </div>
+              </small>
 
-              <div class="person-name">
+              <h3>
                 Gia Han NGUYEN
-              </div>
-
-              <div class="person-class">
-                Classe de 5e2
-              </div>
+              </h3>
 
             </div>
+
+            <p>
+              Suppléante de la candidature, avec un rôle
+              qui peut s'adapter aux besoins de la classe
+              et aux différentes situations.
+            </p>
 
           </article>
+
 
         </div>
 
@@ -1317,29 +2067,51 @@
     </section>
 
 
+
     <!-- =====================================================
-         CLASSE
+         CONCLUSION
     ====================================================== -->
 
-    <section id="classe" class="final-section">
+    <section
+      class="final-section"
+      id="conclusion"
+    >
 
       <div class="container">
+
 
         <div class="final-card reveal">
 
           <div class="eyebrow">
-            5e2
+            Élections · 5e2
           </div>
 
+
           <h2>
-            Merci pour votre attention.
+            Une classe où chacun peut être entendu.
           </h2>
 
+
           <p>
-            Cette candidature repose sur une idée simple :
-            écouter les élèves, prendre ses responsabilités et
-            participer ensemble à la vie de la classe.
+            Découvrez les valeurs, les engagements et
+            l'organisation présentés par l'équipe.
           </p>
+
+
+          <div class="class-badge">
+            5e2 · Jara ZEQIRI & Gia Han NGUYEN
+          </div>
+
+
+          <br>
+
+
+          <button
+            class="main-button"
+            id="openModal"
+          >
+            Découvrir la candidature
+          </button>
 
         </div>
 
@@ -1347,7 +2119,9 @@
 
     </section>
 
+
   </main>
+
 
 
   <!-- =====================================================
@@ -1359,16 +2133,57 @@
     <div class="container footer-inner">
 
       <div class="footer-brand">
-        Élections <span>5e2</span>
+        Jara ZEQIRI · 5e2
       </div>
 
       <div>
-        Jara ZEQIRI · Gia Han NGUYEN
+        Présentation des élections des délégués
       </div>
 
     </div>
 
   </footer>
+
+
+
+  <!-- =====================================================
+       MODAL
+  ====================================================== -->
+
+  <div
+    class="modal"
+    id="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+  >
+
+    <div class="modal-box">
+
+      <button
+        class="modal-close"
+        id="closeModal"
+        aria-label="Fermer"
+      >
+        ×
+      </button>
+
+
+      <h3 id="modalTitle">
+        Merci !
+      </h3>
+
+
+      <p>
+        Merci d'avoir découvert notre candidature
+        et d'avoir pris le temps de découvrir nos
+        idées pour la classe de 5e2.
+      </p>
+
+    </div>
+
+  </div>
+
 
 
   <!-- =====================================================
@@ -1378,52 +2193,67 @@
   <script>
 
     /* =====================================================
-       MOBILE MENU
+       MENU MOBILE
     ===================================================== */
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+    const menuButton =
+      document.getElementById("menuButton");
 
-    menuToggle.addEventListener("click", () => {
-
-      const isOpen = navLinks.classList.toggle("open");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-      );
-
-      menuToggle.textContent = isOpen ? "×" : "☰";
-
-    });
+    const navLinks =
+      document.getElementById("navLinks");
 
 
-    /* Close mobile menu after clicking a link */
+    menuButton.addEventListener(
+      "click",
+      () => {
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
+        const opened =
+          navLinks.classList.toggle("open");
 
-      link.addEventListener("click", () => {
-
-        navLinks.classList.remove("open");
-
-        menuToggle.setAttribute(
+        menuButton.setAttribute(
           "aria-expanded",
-          "false"
+          opened ? "true" : "false"
         );
 
-        menuToggle.textContent = "☰";
+        menuButton.textContent =
+          opened ? "Fermer" : "Menu";
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            navLinks.classList.remove("open");
+
+            menuButton.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+            menuButton.textContent =
+              "Menu";
+
+          }
+        );
 
       });
 
-    });
 
 
     /* =====================================================
-       REVEAL ANIMATION
+       REVEAL ON SCROLL
     ===================================================== */
 
     const revealElements =
       document.querySelectorAll(".reveal");
+
 
     const revealObserver =
       new IntersectionObserver(
@@ -1431,11 +2261,17 @@
 
           entries.forEach(entry => {
 
-            if (entry.isIntersecting) {
+            if (
+              entry.isIntersecting
+            ) {
 
-              entry.target.classList.add("visible");
+              entry.target.classList.add(
+                "visible"
+              );
 
-              revealObserver.unobserve(entry.target);
+              revealObserver.unobserve(
+                entry.target
+              );
 
             }
 
@@ -1448,63 +2284,95 @@
       );
 
 
-    revealElements.forEach(element => {
+    revealElements.forEach(
+      element => {
 
-      revealObserver.observe(element);
+        revealObserver.observe(
+          element
+        );
 
-    });
+      }
+    );
+
 
 
     /* =====================================================
-       ACTIVE NAVIGATION
+       MODAL
     ===================================================== */
 
-    const sections =
-      document.querySelectorAll("main section[id]");
+    const modal =
+      document.getElementById("modal");
 
-    const navItems =
-      document.querySelectorAll(".nav-links a");
+    const openModal =
+      document.getElementById("openModal");
 
-    const sectionObserver =
-      new IntersectionObserver(
-        entries => {
+    const closeModal =
+      document.getElementById("closeModal");
 
-          entries.forEach(entry => {
 
-            if (entry.isIntersecting) {
+    function showModal() {
 
-              navItems.forEach(link => {
+      modal.classList.add("active");
 
-                link.classList.remove("active");
+      document.body.style.overflow =
+        "hidden";
 
-              });
+    }
 
-              const activeLink =
-                document.querySelector(
-                  `.nav-links a[href="#${entry.target.id}"]`
-                );
 
-              if (activeLink) {
-                activeLink.classList.add("active");
-              }
+    function hideModal() {
 
-            }
+      modal.classList.remove("active");
 
-          });
+      document.body.style.overflow =
+        "";
 
-        },
-        {
-          rootMargin: "-35% 0px -55% 0px"
+    }
+
+
+    openModal.addEventListener(
+      "click",
+      showModal
+    );
+
+
+    closeModal.addEventListener(
+      "click",
+      hideModal
+    );
+
+
+    modal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === modal
+        ) {
+
+          hideModal();
+
         }
-      );
+
+      }
+    );
 
 
-    sections.forEach(section => {
+    document.addEventListener(
+      "keydown",
+      event => {
 
-      sectionObserver.observe(section);
+        if (
+          event.key === "Escape" &&
+          modal.classList.contains("active")
+        ) {
 
-    });
+          hideModal();
 
+        }
+
+      }
+    );
 
   </script>
 
