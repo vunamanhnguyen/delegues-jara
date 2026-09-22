@@ -1,45 +1,40 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Jara ZEQIRI — Candidature des délégués · 5e2</title>
+  <title>Élections des délégués — Jara ZEQIRI</title>
   <meta
     name="description"
-    content="Présentation de la candidature de Jara ZEQIRI et Gia Han NGUYEN pour les élections des délégués de la classe 5e2."
-  >
+    content="Présentation de Jara ZEQIRI et Gia Han NGUYEN pour les élections des délégués de la classe 5e2."
+  />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
     rel="stylesheet"
-  >
+  />
 
   <style>
     :root {
+      --black: #080808;
+      --black-soft: #101010;
+      --black-card: #141414;
       --gold: #d4af37;
-      --gold-light: #f0d77a;
-      --gold-dark: #a88418;
-
-      --black: #090909;
-      --black-soft: #111111;
-      --black-card: #151515;
-
+      --gold-light: #f0d878;
       --white: #ffffff;
-      --white-soft: #f6f5f1;
-      --gray: #a7a7a7;
-      --border: rgba(212, 175, 55, 0.22);
+      --white-soft: #e9e9e9;
+      --gray: #a6a6a6;
+      --border: rgba(212, 175, 55, 0.2);
+      --border-light: rgba(255, 255, 255, 0.08);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 
-      --radius: 22px;
       --max-width: 1180px;
-
-      --shadow:
-        0 20px 60px rgba(0, 0, 0, 0.28);
-
-      --transition:
-        0.3s cubic-bezier(.2,.8,.2,1);
+      --radius: 22px;
+      --transition: 0.3s ease;
     }
 
     * {
@@ -69,180 +64,130 @@
       font: inherit;
     }
 
-    .container {
-      width: min(var(--max-width), calc(100% - 40px));
-      margin: 0 auto;
+    ::selection {
+      background: var(--gold);
+      color: var(--black);
     }
 
-    /* =========================================================
-       BACKGROUND
-    ========================================================= */
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -2;
-
-      background:
-        radial-gradient(
-          circle at 15% 15%,
-          rgba(212, 175, 55, 0.10),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 85% 75%,
-          rgba(212, 175, 55, 0.07),
-          transparent 25%
-        );
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      opacity: 0.035;
-
-      background-image:
-        linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
-
-      background-size: 45px 45px;
-      mask-image: linear-gradient(
-        to bottom,
-        black,
-        transparent 75%
-      );
-    }
-
-    /* =========================================================
+    /* =====================================================
        NAVBAR
-    ========================================================= */
+    ===================================================== */
 
     .navbar {
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
+      width: 100%;
       z-index: 1000;
-
-      padding: 18px 0;
-
-      background: rgba(9, 9, 9, 0.72);
+      background: rgba(8, 8, 8, 0.82);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    .nav-inner {
+    .nav-container {
+      width: min(var(--max-width), calc(100% - 40px));
+      height: 76px;
+      margin: auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 30px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-
       font-weight: 700;
-      letter-spacing: .02em;
+      letter-spacing: -0.02em;
     }
 
     .brand-mark {
       display: none;
     }
 
-    .brand-text span {
-      display: block;
+    .brand-text {
+      font-size: 15px;
     }
 
-    .brand-text small {
-      color: var(--gray);
-      font-size: .68rem;
-      font-weight: 500;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+    .brand-text span {
+      color: var(--gold);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 30px;
+      list-style: none;
     }
 
     .nav-links a {
-      color: #d2d2d2;
-      font-size: .9rem;
+      position: relative;
+      color: var(--gray);
+      font-size: 14px;
+      font-weight: 500;
       transition: var(--transition);
     }
 
-    .nav-links a:hover {
-      color: var(--gold-light);
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: var(--transition);
     }
 
-    .nav-class {
-      padding: 9px 14px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--gold-light) !important;
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--white);
     }
 
-    .menu-button {
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
       display: none;
-
-      width: 42px;
-      height: 42px;
-
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 12px;
-
-      background: rgba(255,255,255,.04);
-      color: white;
-
+      border: 0;
+      background: transparent;
+      color: var(--white);
       cursor: pointer;
+      font-size: 25px;
     }
 
-    /* =========================================================
-       HERO
-    ========================================================= */
+    /* =====================================================
+       GLOBAL
+    ===================================================== */
 
-    .hero {
-      min-height: 100vh;
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: auto;
+    }
 
-      display: flex;
-      align-items: center;
-
-      padding: 150px 0 90px;
-
+    section {
       position: relative;
+      padding: 120px 0;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 80px;
-      align-items: center;
+    .section-header {
+      max-width: 720px;
+      margin-bottom: 55px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-
-      margin-bottom: 24px;
-
-      color: var(--gold-light);
-
-      font-size: .76rem;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: .16em;
       text-transform: uppercase;
+      letter-spacing: 0.16em;
     }
 
     .eyebrow::before {
@@ -252,272 +197,296 @@
       background: var(--gold);
     }
 
-    .hero h1 {
-      max-width: 780px;
-
+    .section-title {
       font-family: "Playfair Display", serif;
-      font-size: clamp(3.4rem, 7vw, 6.8rem);
-      line-height: .95;
-      letter-spacing: -.055em;
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      margin-bottom: 20px;
+    }
 
+    .section-description {
+      color: var(--gray);
+      font-size: 17px;
+      max-width: 650px;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 130px;
+      padding-bottom: 80px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 10%;
+      right: -180px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.08);
+      filter: blur(100px);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -250px;
+      left: -180px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.04);
+      filter: blur(100px);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 25px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      background: rgba(212, 175, 55, 0.05);
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+    }
+
+    .hero-label::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(54px, 7vw, 94px);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
       margin-bottom: 28px;
     }
 
     .hero h1 span {
-      color: var(--gold-light);
+      color: var(--gold);
     }
 
     .hero-description {
-      max-width: 650px;
-
-      color: #c5c5c5;
-      font-size: 1.08rem;
-      line-height: 1.8;
-
+      max-width: 620px;
       margin-bottom: 34px;
+      color: var(--gray);
+      font-size: 18px;
     }
 
-    .hero-meta {
+    .hero-description strong {
+      color: var(--white);
+    }
+
+    .hero-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
+      margin-bottom: 38px;
     }
 
-    .meta-pill {
-      padding: 10px 15px;
-
-      border: 1px solid rgba(255,255,255,.09);
-      border-radius: 999px;
-
-      background: rgba(255,255,255,.035);
-
-      color: #ddd;
-      font-size: .82rem;
+    .pill {
+      padding: 9px 14px;
+      border: 1px solid var(--border-light);
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--white-soft);
+      font-size: 13px;
     }
 
-    .meta-pill strong {
-      color: var(--gold-light);
+    .pill strong {
+      color: var(--gold);
     }
-
-    /* Hero card */
 
     .hero-card {
       position: relative;
-
-      padding: 28px;
-
+      min-height: 500px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border: 1px solid var(--border);
       border-radius: 30px;
-
       background:
         linear-gradient(
           145deg,
-          rgba(255,255,255,.075),
-          rgba(255,255,255,.025)
-        );
-
-      border: 1px solid var(--border);
-
+          rgba(212, 175, 55, 0.1),
+          rgba(255, 255, 255, 0.02)
+        ),
+        var(--black-card);
       box-shadow: var(--shadow);
-
       overflow: hidden;
     }
 
     .hero-card::before {
       content: "";
       position: absolute;
-
-      width: 220px;
-      height: 220px;
-
       top: -100px;
-      right: -80px;
-
+      right: -100px;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
-
-      background: rgba(212,175,55,.12);
-      filter: blur(5px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
     }
 
-    .candidate-label {
-      position: relative;
-
-      color: var(--gray);
-      font-size: .72rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-
-      margin-bottom: 20px;
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 175, 55, 0.13);
     }
 
     .candidate-icon {
       display: none;
     }
 
-    .hero-card h2 {
+    .hero-card-content {
       position: relative;
-
-      font-family: "Playfair Display", serif;
-      font-size: 2.2rem;
-
-      margin-bottom: 6px;
+      z-index: 2;
     }
 
-    .candidate-role {
-      color: var(--gold-light);
-      font-weight: 600;
-    }
-
-    .candidate-line {
-      height: 1px;
-      background: rgba(255,255,255,.09);
-      margin: 24px 0;
-    }
-
-    .partner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .partner-info small {
-      display: block;
-      color: var(--gray);
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-bottom: 4px;
-    }
-
-    .partner-info strong {
-      font-size: 1rem;
-    }
-
-    .partner-badge {
-      width: 44px;
-      height: 44px;
-
-      display: grid;
-      place-items: center;
-
-      border: 1px solid var(--border);
-      border-radius: 14px;
-
-      color: var(--gold-light);
-    }
-
-    /* =========================================================
-       SECTION COMMON
-    ========================================================= */
-
-    section {
-      padding: 110px 0;
-    }
-
-    .section-heading {
-      max-width: 700px;
-      margin-bottom: 55px;
-    }
-
-    .section-kicker {
-      color: var(--gold-light);
-
-      font-size: .74rem;
+    .hero-card-label {
+      color: var(--gold);
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: .16em;
       text-transform: uppercase;
-
-      margin-bottom: 14px;
+      letter-spacing: 0.15em;
+      margin-bottom: 10px;
     }
 
-    .section-heading h2 {
+    .hero-card h2 {
       font-family: "Playfair Display", serif;
-
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-size: 38px;
       line-height: 1.05;
-      letter-spacing: -.04em;
-
-      margin-bottom: 18px;
+      margin-bottom: 8px;
     }
 
-    .section-heading p {
+    .hero-card p {
       color: var(--gray);
-      line-height: 1.8;
+      font-size: 15px;
     }
 
-    /* =========================================================
+    .hero-card-line {
+      width: 60px;
+      height: 2px;
+      margin: 25px 0;
+      background: var(--gold);
+    }
+
+    .hero-card-class {
+      color: var(--white);
+      font-size: 14px;
+    }
+
+    /* =====================================================
        VALUES
-    ========================================================= */
+    ===================================================== */
+
+    .values-section {
+      background: var(--black-soft);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
 
     .values-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 18px;
     }
 
     .value-card {
-      min-height: 230px;
-
-      padding: 26px;
-
+      position: relative;
+      padding: 32px;
+      min-height: 250px;
+      border: 1px solid var(--border-light);
       border-radius: var(--radius);
-
       background: var(--black-card);
-      border: 1px solid rgba(255,255,255,.07);
+      transition: transform var(--transition), border-color var(--transition);
+      overflow: hidden;
+    }
 
+    .value-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
       transition: var(--transition);
     }
 
     .value-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-7px);
       border-color: var(--border);
-
-      box-shadow:
-        0 20px 50px rgba(0,0,0,.22);
     }
 
-    .value-number {
-      color: var(--gold);
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-
-      margin-bottom: 55px;
-    }
-
-    .value-icon {
-      font-size: 1.6rem;
-      margin-bottom: 13px;
+    .value-card:hover::before {
+      transform: scaleX(1);
     }
 
     .value-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      font-family: "Playfair Display", serif;
+      font-size: 27px;
     }
 
     .value-card p {
       color: var(--gray);
-      font-size: .88rem;
+      font-size: 14px;
     }
 
-    /* =========================================================
+    /* =====================================================
        ENGAGEMENT
-    ========================================================= */
-
-    .engagement {
-      background:
-        linear-gradient(
-          180deg,
-          transparent,
-          rgba(212,175,55,.035),
-          transparent
-        );
-    }
+    ===================================================== */
 
     .engagement-grid {
       display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 60px;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
       align-items: start;
     }
 
@@ -526,305 +495,211 @@
       top: 120px;
     }
 
-    .engagement-intro h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1.05;
-      letter-spacing: -.04em;
-      margin-bottom: 20px;
-    }
-
-    .engagement-intro p {
-      color: var(--gray);
-      line-height: 1.8;
-    }
-
     .engagement-list {
-      display: grid;
-      gap: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
     .engagement-item {
       display: grid;
-      grid-template-columns: 58px 1fr;
-      gap: 18px;
-
-      padding: 23px;
-
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 18px;
-
-      background: rgba(255,255,255,.025);
-
-      transition: var(--transition);
+      grid-template-columns: 60px 1fr;
+      gap: 22px;
+      padding: 27px 0;
+      border-bottom: 1px solid var(--border-light);
     }
 
-    .engagement-item:hover {
-      border-color: var(--border);
-      background: rgba(212,175,55,.035);
-    }
-
-    .engagement-icon {
-      width: 50px;
-      height: 50px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 15px;
-
-      background: rgba(212,175,55,.09);
-      color: var(--gold-light);
-
-      font-size: 1.15rem;
+    .engagement-number {
+      color: var(--gold);
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
     }
 
     .engagement-item h3 {
       margin-bottom: 5px;
-      font-size: 1rem;
+      font-size: 18px;
     }
 
     .engagement-item p {
       color: var(--gray);
-      font-size: .88rem;
-      line-height: 1.65;
+      font-size: 14px;
     }
 
-    /* =========================================================
-       REPRESENTATION
-    ========================================================= */
+    /* =====================================================
+       QUOTE
+    ===================================================== */
 
-    .representation-card {
-      position: relative;
-
-      padding: 65px;
-
-      border-radius: 30px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(212,175,55,.11),
-          rgba(255,255,255,.025)
-        );
-
-      border: 1px solid var(--border);
-
-      overflow: hidden;
+    .quote-section {
+      padding: 110px 0;
+      background: var(--black-soft);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
     }
 
-    .representation-card::after {
-      content: "“";
+    .quote-box {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
 
-      position: absolute;
-      right: 30px;
-      top: -45px;
-
+    .quote-mark {
+      color: var(--gold);
       font-family: "Playfair Display", serif;
-      font-size: 15rem;
-
-      color: rgba(212,175,55,.08);
-      line-height: 1;
+      font-size: 80px;
+      line-height: 0.7;
+      margin-bottom: 25px;
+      opacity: 0.8;
     }
 
-    .quote-label {
-      position: relative;
-      z-index: 1;
-
-      color: var(--gold-light);
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-
-      margin-bottom: 20px;
-    }
-
-    .representation-card blockquote {
-      position: relative;
-      z-index: 1;
-
-      max-width: 780px;
-
+    .quote-text {
       font-family: "Playfair Display", serif;
-      font-size: clamp(2rem, 4vw, 3.8rem);
-      line-height: 1.15;
-      letter-spacing: -.035em;
+      font-size: clamp(38px, 6vw, 70px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
     }
 
-    /* =========================================================
+    .quote-author {
+      margin-top: 24px;
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* =====================================================
        TEAM
-    ========================================================= */
+    ===================================================== */
 
     .team-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+      gap: 20px;
+      max-width: 850px;
     }
 
     .person-card {
-      padding: 30px;
-
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: var(--radius);
-
-      background: var(--black-card);
-    }
-
-    .person-top {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 22px;
+      padding: 28px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      background: var(--black-card);
+      transition: var(--transition);
+    }
 
-      margin-bottom: 25px;
+    .person-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border);
     }
 
     .person-avatar {
       width: 72px;
       height: 72px;
-
-      flex-shrink: 0;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 22px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(212,175,55,.22),
-          rgba(212,175,55,.05)
-        );
-
+      flex: 0 0 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
       border: 1px solid var(--border);
-
-      color: var(--gold-light);
-
+      background: rgba(212, 175, 55, 0.08);
+      color: var(--gold);
       font-family: "Playfair Display", serif;
-      font-size: 1.5rem;
+      font-size: 26px;
     }
 
-    .person-card small {
-      display: block;
-
-      color: var(--gold-light);
-
-      font-size: .7rem;
+    .person-role {
+      margin-bottom: 5px;
+      color: var(--gold);
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: .12em;
       text-transform: uppercase;
-
-      margin-bottom: 4px;
+      letter-spacing: 0.12em;
     }
 
-    .person-card h3 {
-      font-size: 1.3rem;
+    .person-name {
+      font-size: 21px;
+      font-weight: 700;
     }
 
-    .person-card p {
+    .person-class {
+      margin-top: 3px;
       color: var(--gray);
-      font-size: .9rem;
-      line-height: 1.7;
+      font-size: 13px;
     }
 
-    /* =========================================================
+    /* =====================================================
        FINAL
-    ========================================================= */
+    ===================================================== */
 
     .final-section {
-      padding-bottom: 70px;
+      padding-top: 80px;
+      padding-bottom: 120px;
     }
 
     .final-card {
+      position: relative;
+      padding: 70px 50px;
       text-align: center;
-
-      padding: 75px 30px;
-
-      border-radius: 32px;
-
+      border: 1px solid var(--border);
+      border-radius: 30px;
       background:
         radial-gradient(
           circle at 50% 0%,
-          rgba(212,175,55,.13),
-          transparent 45%
+          rgba(212, 175, 55, 0.12),
+          transparent 50%
         ),
         var(--black-card);
-
-      border: 1px solid var(--border);
-    }
-
-    .final-card .eyebrow {
-      justify-content: center;
+      overflow: hidden;
     }
 
     .final-card h2 {
       font-family: "Playfair Display", serif;
-      font-size: clamp(2.6rem, 6vw, 5rem);
-      line-height: 1;
-      letter-spacing: -.05em;
-
-      max-width: 850px;
-      margin: 0 auto 20px;
+      font-size: clamp(38px, 5vw, 62px);
+      margin-bottom: 18px;
     }
 
     .final-card p {
       max-width: 600px;
-      margin: 0 auto 30px;
-
+      margin: auto;
       color: var(--gray);
     }
 
-    .class-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-
-      padding: 12px 18px;
-
-      border: 1px solid var(--border);
-      border-radius: 999px;
-
-      color: var(--gold-light);
-      font-size: .82rem;
-      font-weight: 700;
-    }
-
-    /* =========================================================
+    /* =====================================================
        FOOTER
-    ========================================================= */
+    ===================================================== */
 
     footer {
-      padding: 30px 0 40px;
-
-      border-top: 1px solid rgba(255,255,255,.06);
-
-      color: #777;
-      font-size: .78rem;
+      padding: 30px 0;
+      border-top: 1px solid var(--border-light);
+      color: var(--gray);
+      font-size: 12px;
     }
 
     .footer-inner {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 20px;
     }
 
     .footer-brand {
-      color: #bcbcbc;
+      color: var(--white);
       font-weight: 600;
     }
 
-    /* =========================================================
-       REVEAL ANIMATION
-    ========================================================= */
+    .footer-brand span {
+      color: var(--gold);
+    }
+
+    /* =====================================================
+       ANIMATIONS
+    ===================================================== */
 
     .reveal {
       opacity: 0;
-      transform: translateY(25px);
+      transform: translateY(30px);
       transition:
-        opacity .7s ease,
-        transform .7s ease;
+        opacity 0.8s ease,
+        transform 0.8s ease;
     }
 
     .reveal.visible {
@@ -832,105 +707,101 @@
       transform: translateY(0);
     }
 
-    /* =========================================================
+    /* =====================================================
        RESPONSIVE
-    ========================================================= */
+    ===================================================== */
 
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .hero-card {
+        min-height: 400px;
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .engagement-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .engagement-intro {
+        position: static;
+      }
+    }
+
+    @media (max-width: 760px) {
+      section {
+        padding: 85px 0;
+      }
+
+      .nav-container {
+        width: min(var(--max-width), calc(100% - 28px));
+      }
+
+      .menu-toggle {
+        display: block;
+      }
 
       .nav-links {
         position: absolute;
-
-        top: calc(100% + 10px);
-        left: 20px;
-        right: 20px;
-
-        padding: 18px;
-
+        top: 76px;
+        left: 0;
+        width: 100%;
         display: none;
         flex-direction: column;
-        align-items: stretch;
-        gap: 4px;
-
-        background: rgba(15,15,15,.96);
-        border: 1px solid rgba(255,255,255,.08);
-        border-radius: 18px;
-
-        box-shadow: var(--shadow);
+        align-items: flex-start;
+        gap: 0;
+        padding: 12px 20px 20px;
+        background: rgba(8, 8, 8, 0.97);
+        border-bottom: 1px solid var(--border-light);
       }
 
       .nav-links.open {
         display: flex;
       }
 
+      .nav-links li {
+        width: 100%;
+      }
+
       .nav-links a {
-        padding: 12px;
-      }
-
-      .menu-button {
-        display: grid;
-        place-items: center;
-      }
-
-      .hero-grid,
-      .engagement-grid {
-        grid-template-columns: 1fr;
+        display: block;
+        width: 100%;
+        padding: 14px 0;
       }
 
       .hero {
-        padding-top: 130px;
-      }
-
-      .hero-card {
-        max-width: 620px;
-      }
-
-      .engagement-intro {
-        position: static;
-      }
-
-      .values-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-
-      .container {
-        width: min(100% - 28px, var(--max-width));
-      }
-
-      section {
-        padding: 80px 0;
+        padding-top: 120px;
       }
 
       .hero h1 {
-        font-size: clamp(3rem, 15vw, 5rem);
+        font-size: clamp(48px, 14vw, 70px);
       }
 
       .hero-description {
-        font-size: 1rem;
+        font-size: 16px;
       }
 
-      .values-grid,
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
       .team-grid {
         grid-template-columns: 1fr;
       }
 
-      .value-card {
-        min-height: auto;
+      .person-card {
+        padding: 22px;
       }
 
-      .value-number {
-        margin-bottom: 35px;
-      }
-
-      .representation-card {
-        padding: 38px 25px;
-      }
-
-      .representation-card blockquote {
-        font-size: 2rem;
+      .final-card {
+        padding: 55px 25px;
       }
 
       .footer-inner {
@@ -939,21 +810,29 @@
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
+    @media (max-width: 480px) {
+      .container {
+        width: min(var(--max-width), calc(100% - 28px));
       }
 
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
+      .hero-card {
+        min-height: 350px;
+        padding: 28px;
       }
 
-      .reveal {
-        opacity: 1;
-        transform: none;
+      .hero-card h2 {
+        font-size: 32px;
+      }
+
+      .engagement-item {
+        grid-template-columns: 42px 1fr;
+        gap: 12px;
+      }
+
+      .person-avatar {
+        width: 58px;
+        height: 58px;
+        flex-basis: 58px;
       }
     }
   </style>
@@ -961,38 +840,53 @@
 
 <body>
 
-  <!-- =======================================================
+  <!-- =====================================================
        NAVBAR
-  ======================================================== -->
+  ====================================================== -->
 
   <header class="navbar">
-    <div class="container nav-inner">
+    <div class="nav-container">
 
       <a href="#accueil" class="brand">
+        <span class="brand-mark"></span>
 
-        <div class="brand-text">
-          <span>Jara ZEQIRI</span>
-          <small>Présentation · 5e2</small>
-        </div>
-
+        <span class="brand-text">
+          Élections <span>5e2</span>
+        </span>
       </a>
 
-      <nav class="nav-links" id="navLinks">
-        <a href="#accueil">Accueil</a>
-        <a href="#valeurs">Valeurs</a>
-        <a href="#engagement">Engagement</a>
-        <a href="#equipe">Équipe</a>
-        <a href="#conclusion" class="nav-class">5e2</a>
-      </nav>
-
       <button
-        class="menu-button"
-        id="menuButton"
+        class="menu-toggle"
+        id="menuToggle"
         aria-label="Ouvrir le menu"
         aria-expanded="false"
       >
         ☰
       </button>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="#accueil" class="active">Accueil</a>
+          </li>
+
+          <li>
+            <a href="#valeurs">Valeurs</a>
+          </li>
+
+          <li>
+            <a href="#engagement">Engagement</a>
+          </li>
+
+          <li>
+            <a href="#equipe">Équipe</a>
+          </li>
+
+          <li>
+            <a href="#classe">5e2</a>
+          </li>
+        </ul>
+      </nav>
 
     </div>
   </header>
@@ -1005,39 +899,46 @@
     ====================================================== -->
 
     <section class="hero" id="accueil">
+
       <div class="container hero-grid">
 
         <div class="hero-content reveal">
 
-          <div class="eyebrow">
+          <div class="hero-label">
             Élections des délégués
           </div>
 
           <h1>
             Écouter.<br>
-            Représenter.<br>
-            <span>Agir.</span>
+            <span>Représenter.</span><br>
+            Agir.
           </h1>
 
           <p class="hero-description">
-            Une présentation de la candidature de
-            <strong>Jara ZEQIRI</strong>, avec
-            <strong>Gia Han NGUYEN</strong> comme suppléante,
-            pour la classe de <strong>5e2</strong>.
+            Une candidature construite autour de
+            <strong>l’écoute</strong>, de la
+            <strong>responsabilité</strong> et de la
+            <strong>coopération</strong>, pour représenter au mieux
+            les élèves de la <strong>5e2</strong>.
           </p>
 
-          <div class="hero-meta">
-            <div class="meta-pill">
-              Candidate · <strong>Jara ZEQIRI</strong>
+          <div class="hero-pills">
+
+            <div class="pill">
+              Candidate :
+              <strong>Jara ZEQIRI</strong>
             </div>
 
-            <div class="meta-pill">
-              Suppléante · <strong>Gia Han NGUYEN</strong>
+            <div class="pill">
+              Suppléante :
+              <strong>Gia Han NGUYEN</strong>
             </div>
 
-            <div class="meta-pill">
-              Classe · <strong>5e2</strong>
+            <div class="pill">
+              Classe :
+              <strong>5e2</strong>
             </div>
+
           </div>
 
         </div>
@@ -1045,27 +946,25 @@
 
         <div class="hero-card reveal">
 
-          <div class="candidate-label">
-            Présentation de l'équipe
-          </div>
+          <div class="hero-card-content">
 
-          <h2>Jara ZEQIRI</h2>
-
-          <div class="candidate-role">
-            Candidate déléguée
-          </div>
-
-          <div class="candidate-line"></div>
-
-          <div class="partner">
-
-            <div class="partner-info">
-              <small>Suppléante</small>
-              <strong>Gia Han NGUYEN</strong>
+            <div class="hero-card-label">
+              Candidate
             </div>
 
-            <div class="partner-badge">
-              GH
+            <h2>
+              Jara<br>
+              ZEQIRI
+            </h2>
+
+            <p>
+              Une déléguée attentive, organisée et disponible.
+            </p>
+
+            <div class="hero-card-line"></div>
+
+            <div class="hero-card-class">
+              Classe de <strong>5e2</strong>
             </div>
 
           </div>
@@ -1073,30 +972,33 @@
         </div>
 
       </div>
+
     </section>
 
 
     <!-- =====================================================
-         VALUES
+         VALEURS
     ====================================================== -->
 
-    <section id="valeurs">
+    <section class="values-section" id="valeurs">
+
       <div class="container">
 
-        <div class="section-heading reveal">
+        <div class="section-header reveal">
 
-          <div class="section-kicker">
-            01 · Les valeurs
+          <div class="eyebrow">
+            Nos valeurs
           </div>
 
-          <h2>
-            Une représentation basée sur l'écoute.
+          <h2 class="section-title">
+            Une représentation basée sur
+            <span class="gold">l'essentiel.</span>
           </h2>
 
-          <p>
-            Les priorités présentées pour cette candidature reposent
-            notamment sur l'écoute, la responsabilité, la coopération
-            et la prise en compte des idées des élèves.
+          <p class="section-description">
+            Être déléguée, c'est avant tout être à l'écoute des autres,
+            prendre ses responsabilités et participer à une bonne
+            dynamique de classe.
           </p>
 
         </div>
@@ -1105,63 +1007,64 @@
         <div class="values-grid">
 
           <article class="value-card reveal">
-            <div class="value-number">01</div>
 
-            <div class="value-icon">◌</div>
-
-            <h3>Écoute</h3>
+            <h3>
+              Écoute
+            </h3>
 
             <p>
-              Donner une place aux idées, questions et préoccupations
-              des élèves.
+              Prendre le temps d'écouter les idées, les besoins
+              et les différents points de vue de chaque élève.
             </p>
+
           </article>
 
 
           <article class="value-card reveal">
-            <div class="value-number">02</div>
 
-            <div class="value-icon">◆</div>
-
-            <h3>Responsabilité</h3>
+            <h3>
+              Responsabilité
+            </h3>
 
             <p>
-              Prendre au sérieux le rôle de représentation et les
-              responsabilités associées.
+              Prendre son rôle au sérieux, respecter ses engagements
+              et transmettre les informations importantes.
             </p>
+
           </article>
 
 
           <article class="value-card reveal">
-            <div class="value-number">03</div>
 
-            <div class="value-icon">◇</div>
-
-            <h3>Coopération</h3>
+            <h3>
+              Coopération
+            </h3>
 
             <p>
-              Favoriser les échanges et la coopération entre les
-              élèves de la classe.
+              Encourager les échanges et rechercher des solutions
+              en travaillant ensemble.
             </p>
+
           </article>
 
 
           <article class="value-card reveal">
-            <div class="value-number">04</div>
 
-            <div class="value-icon">+</div>
-
-            <h3>Disponibilité</h3>
+            <h3>
+              Disponibilité
+            </h3>
 
             <p>
-              Être présente pour écouter et transmettre les
-              informations nécessaires.
+              Être présente et accessible pour pouvoir écouter
+              les élèves lorsque cela est nécessaire.
             </p>
+
           </article>
 
         </div>
 
       </div>
+
     </section>
 
 
@@ -1169,23 +1072,24 @@
          ENGAGEMENT
     ====================================================== -->
 
-    <section class="engagement" id="engagement">
+    <section id="engagement">
+
       <div class="container engagement-grid">
 
         <div class="engagement-intro reveal">
 
-          <div class="section-kicker">
-            02 · Engagement
+          <div class="eyebrow">
+            Nos engagements
           </div>
 
-          <h2>
-            Une méthode simple.
+          <h2 class="section-title">
+            Des idées simples.
+            <span class="gold">Des actions concrètes.</span>
           </h2>
 
-          <p>
-            L'objectif présenté est de rester à l'écoute de la classe,
-            de recueillir les différentes opinions et de rechercher
-            des solutions lorsque cela est possible.
+          <p class="section-description">
+            Le rôle de déléguée consiste aussi à être un lien entre
+            les élèves et les adultes de l'établissement.
           </p>
 
         </div>
@@ -1195,16 +1099,18 @@
 
           <article class="engagement-item reveal">
 
-            <div class="engagement-icon">
+            <div class="engagement-number">
               01
             </div>
 
             <div>
-              <h3>Recueillir les idées</h3>
+              <h3>
+                Recueillir les idées
+              </h3>
 
               <p>
-                Utiliser différentes façons de recueillir les
-                suggestions et remarques des élèves.
+                Donner à chacun la possibilité de partager ses
+                propositions et ses remarques.
               </p>
             </div>
 
@@ -1213,16 +1119,18 @@
 
           <article class="engagement-item reveal">
 
-            <div class="engagement-icon">
+            <div class="engagement-number">
               02
             </div>
 
             <div>
-              <h3>Écouter les différents points de vue</h3>
+              <h3>
+                Écouter les différents points de vue
+              </h3>
 
               <p>
-                Prendre le temps d'entendre les différentes opinions
-                avant de chercher une solution.
+                Prendre en compte les opinions de chacun avant
+                de chercher une solution.
               </p>
             </div>
 
@@ -1231,16 +1139,18 @@
 
           <article class="engagement-item reveal">
 
-            <div class="engagement-icon">
+            <div class="engagement-number">
               03
             </div>
 
             <div>
-              <h3>Favoriser la coopération</h3>
+              <h3>
+                Favoriser la coopération
+              </h3>
 
               <p>
-                Encourager les échanges et les activités permettant
-                aux élèves de mieux travailler ensemble.
+                Encourager la classe à travailler ensemble et
+                à construire des solutions collectives.
               </p>
             </div>
 
@@ -1249,16 +1159,18 @@
 
           <article class="engagement-item reveal">
 
-            <div class="engagement-icon">
+            <div class="engagement-number">
               04
             </div>
 
             <div>
-              <h3>Préparer les conseils de classe</h3>
+              <h3>
+                Préparer les conseils de classe
+              </h3>
 
               <p>
-                Recueillir les informations importantes et préparer
-                les sujets à transmettre avant un conseil de classe.
+                Recueillir les informations et les sujets importants
+                afin de pouvoir les représenter correctement.
               </p>
             </div>
 
@@ -1267,16 +1179,18 @@
 
           <article class="engagement-item reveal">
 
-            <div class="engagement-icon">
+            <div class="engagement-number">
               05
             </div>
 
             <div>
-              <h3>Rester disponible</h3>
+              <h3>
+                Rester disponible
+              </h3>
 
               <p>
-                Être disponible selon les situations et communiquer
-                les informations importantes à la classe.
+                Être présente et disponible selon les situations
+                et les besoins de la classe.
               </p>
             </div>
 
@@ -1285,53 +1199,61 @@
         </div>
 
       </div>
+
     </section>
 
 
     <!-- =====================================================
-         REPRESENTATION
+         QUOTE
     ====================================================== -->
 
-    <section>
+    <section class="quote-section">
+
       <div class="container">
 
-        <div class="representation-card reveal">
+        <div class="quote-box reveal">
 
-          <div class="quote-label">
-            03 · Une façon de représenter la classe
+          <div class="quote-mark">
+            “
           </div>
 
-          <blockquote>
-            « Je vous écoute. »
-          </blockquote>
+          <div class="quote-text">
+            Je vous écoute.
+          </div>
+
+          <div class="quote-author">
+            Jara ZEQIRI · 5e2
+          </div>
 
         </div>
 
       </div>
+
     </section>
 
 
     <!-- =====================================================
-         TEAM
+         EQUIPE
     ====================================================== -->
 
     <section id="equipe">
+
       <div class="container">
 
-        <div class="section-heading reveal">
+        <div class="section-header reveal">
 
-          <div class="section-kicker">
-            04 · L'équipe
+          <div class="eyebrow">
+            L'équipe
           </div>
 
-          <h2>
-            Deux rôles, une organisation.
+          <h2 class="section-title">
+            Deux élèves,
+            <span class="gold">un engagement commun.</span>
           </h2>
 
-          <p>
-            La candidature est composée d'une déléguée et d'une
-            suppléante, avec une organisation adaptable selon les
-            situations.
+          <p class="section-description">
+            Une équipe organisée pour représenter la classe,
+            écouter ses élèves et transmettre leurs idées.
           </p>
 
         </div>
@@ -1341,68 +1263,72 @@
 
           <article class="person-card reveal">
 
-            <div class="person-top">
+            <div class="person-avatar">
+              J
+            </div>
 
-              <div class="person-avatar">
-                J
+            <div>
+
+              <div class="person-role">
+                Candidate
               </div>
 
-              <div>
-                <small>Déléguée</small>
-                <h3>Jara ZEQIRI</h3>
+              <div class="person-name">
+                Jara ZEQIRI
+              </div>
+
+              <div class="person-class">
+                Classe de 5e2
               </div>
 
             </div>
-
-            <p>
-              Candidate principale pour représenter la classe,
-              recueillir les idées des élèves et participer aux
-              échanges avec les enseignants.
-            </p>
 
           </article>
 
 
           <article class="person-card reveal">
 
-            <div class="person-top">
+            <div class="person-avatar">
+              G
+            </div>
 
-              <div class="person-avatar">
-                G
+            <div>
+
+              <div class="person-role">
+                Suppléante
               </div>
 
-              <div>
-                <small>Suppléante</small>
-                <h3>Gia Han NGUYEN</h3>
+              <div class="person-name">
+                Gia Han NGUYEN
+              </div>
+
+              <div class="person-class">
+                Classe de 5e2
               </div>
 
             </div>
-
-            <p>
-              Suppléante de la candidature, avec un rôle qui peut
-              s'adapter aux besoins de la classe et aux différentes
-              situations.
-            </p>
 
           </article>
 
         </div>
 
       </div>
+
     </section>
 
 
     <!-- =====================================================
-         CONCLUSION
+         CLASSE
     ====================================================== -->
 
-    <section class="final-section" id="conclusion">
+    <section id="classe" class="final-section">
+
       <div class="container">
 
         <div class="final-card reveal">
 
           <div class="eyebrow">
-            Élections · 5e2
+            5e2
           </div>
 
           <h2>
@@ -1410,66 +1336,69 @@
           </h2>
 
           <p>
-            Cette présentation résume les valeurs, les engagements
-            et l'organisation proposés par l'équipe de candidature.
+            Cette candidature repose sur une idée simple :
+            écouter les élèves, prendre ses responsabilités et
+            participer ensemble à la vie de la classe.
           </p>
-
-          <div class="class-badge">
-            5e2 · Jara ZEQIRI & Gia Han NGUYEN
-          </div>
 
         </div>
 
       </div>
+
     </section>
 
   </main>
 
 
-  <!-- =======================================================
+  <!-- =====================================================
        FOOTER
-  ======================================================== -->
+  ====================================================== -->
 
   <footer>
+
     <div class="container footer-inner">
 
       <div class="footer-brand">
-        Jara ZEQIRI · 5e2
+        Élections <span>5e2</span>
       </div>
 
       <div>
-        Présentation des élections des délégués
+        Jara ZEQIRI · Gia Han NGUYEN
       </div>
 
     </div>
+
   </footer>
 
 
-  <!-- =======================================================
+  <!-- =====================================================
        JAVASCRIPT
-  ======================================================== -->
+  ====================================================== -->
 
   <script>
 
-    /* ============================
+    /* =====================================================
        MOBILE MENU
-    ============================ */
+    ===================================================== */
 
-    const menuButton = document.getElementById("menuButton");
+    const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
 
-    menuButton.addEventListener("click", () => {
+    menuToggle.addEventListener("click", () => {
 
       const isOpen = navLinks.classList.toggle("open");
 
-      menuButton.setAttribute(
+      menuToggle.setAttribute(
         "aria-expanded",
         isOpen ? "true" : "false"
       );
 
-      menuButton.textContent = isOpen ? "×" : "☰";
+      menuToggle.textContent = isOpen ? "×" : "☰";
+
     });
 
+
+    /* Close mobile menu after clicking a link */
 
     document.querySelectorAll(".nav-links a").forEach(link => {
 
@@ -1477,21 +1406,21 @@
 
         navLinks.classList.remove("open");
 
-        menuButton.setAttribute(
+        menuToggle.setAttribute(
           "aria-expanded",
           "false"
         );
 
-        menuButton.textContent = "☰";
+        menuToggle.textContent = "☰";
 
       });
 
     });
 
 
-    /* ============================
-       REVEAL ON SCROLL
-    ============================ */
+    /* =====================================================
+       REVEAL ANIMATION
+    ===================================================== */
 
     const revealElements =
       document.querySelectorAll(".reveal");
@@ -1520,13 +1449,15 @@
 
 
     revealElements.forEach(element => {
+
       revealObserver.observe(element);
+
     });
 
 
-    /* ============================
+    /* =====================================================
        ACTIVE NAVIGATION
-    ============================ */
+    ===================================================== */
 
     const sections =
       document.querySelectorAll("main section[id]");
@@ -1540,20 +1471,23 @@
 
           entries.forEach(entry => {
 
-            if (!entry.isIntersecting) return;
+            if (entry.isIntersecting) {
 
-            navItems.forEach(link => {
-              link.style.color = "";
-            });
+              navItems.forEach(link => {
 
-            const activeLink =
-              document.querySelector(
-                `.nav-links a[href="#${entry.target.id}"]`
-              );
+                link.classList.remove("active");
 
-            if (activeLink) {
-              activeLink.style.color =
-                "var(--gold-light)";
+              });
+
+              const activeLink =
+                document.querySelector(
+                  `.nav-links a[href="#${entry.target.id}"]`
+                );
+
+              if (activeLink) {
+                activeLink.classList.add("active");
+              }
+
             }
 
           });
@@ -1566,8 +1500,11 @@
 
 
     sections.forEach(section => {
+
       sectionObserver.observe(section);
+
     });
+
 
   </script>
 
